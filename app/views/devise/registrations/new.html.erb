@@ -1,7 +1,72 @@
-<h2>Sign up</h2>
+<div id="container">
+<div id="header">
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+
+
+<img src="<%= image_path 'logo.png' %>" width="357" height="100" />
+
+<ul id="topnav">
+    <li>About</li>
+   <li>Tour</li>
+   <li>Login</li>
+</ul>
+</div><!--div header-->
+<div id="central">
+<center>
+<img src="<%= image_path 'princess.jpg' %>" width="325" height="309" /><img src="<%= image_path 'frog.jpg' %>" width="325" height="309" />
+</center>
+</div>
+
+
+<div id="downcentral"><!-- total own -->
+</br>
+</br>
+
+
+<div id = "button_princess"> <!-- space for button -->
+<div id="positionprincessbutton"> <!-- space for button real -->
+<a href="#" class="button" >I'm a Princess</a>
+</div>
+</div>
+
+
+<div id="blankspace"></div><!-- blank space -->
+
+<div id="button_frog">
+<div id="positionfrogbutton">
+<a href="#" class="button2"> - I'm a Frog  -  </a>
+</div>
+</div>
+
+</div><!--downcentral -->
+
+<div id="footer">
+   This will hold the footer
+</div>
+
+</div><!--div container-->
+
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true }) do |f| %>
   <%= devise_error_messages! %>
+
+  <%= f.label :sex %>
+  <%= f.text_field :sex %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :country %>
+  <%= f.text_field :country %>
+
+  <%= f.label :province %>
+  <%= f.text_field :province %>
+
+  <%= f.label :city %>
+  <%= f.text_field :city %>
+
+   <%= f.label :birthdate %>
+  <%= f.date_select :birthdate %>
 
   <div><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true %></div>
@@ -11,6 +76,8 @@
 
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
+
+    <%= f.file_field :avatar %>
 
   <div><%= f.submit "Sign up" %></div>
 <% end %>
