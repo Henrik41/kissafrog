@@ -35,28 +35,7 @@ body {
 	
 	list-style-type: none;
 }
-.button {
-   border-top: 1px solid #df3d83;
-   background: #df3d83;
-   background: -webkit-gradient(linear, left top, left bottom, from(#f59dc3), to(#df3d83));
-   background: -webkit-linear-gradient(top, #f59dc3, #df3d83);
-   background: -moz-linear-gradient(top, #f59dc3, #df3d83);
-   background: -ms-linear-gradient(top, #f59dc3, #df3d83);
-   background: -o-linear-gradient(top, #f59dc3, #df3d83);
-   padding: 20px 40px;
-   -webkit-border-radius: 11px;
-   -moz-border-radius: 11px;
-   border-radius: 11px;
-   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   box-shadow: rgba(0,0,0,1) 0 1px 0;
-   text-shadow: rgba(0,0,0,.4) 0 1px 0;
-   color: #ffffff;
-   font-size: 24px;
-   font-family: Georgia, serif;
-   text-decoration: none;
-   vertical-align: middle;
-   }
+
 .button:hover {
    border-top-color: #df3d83;
    background: #df3d83;
@@ -68,26 +47,7 @@ body {
    }
    
    .button2 {
-   border-top: 1px solid #006bed;
-   background: #006bed;
-   background: -webkit-gradient(linear, left top, left bottom, from(#69a8f0), to(#006bed));
-   background: -webkit-linear-gradient(top, #69a8f0, #006bed);
-   background: -moz-linear-gradient(top, #69a8f0, #006bed);
-   background: -ms-linear-gradient(top, #69a8f0, #006bed);
-   background: -o-linear-gradient(top, #69a8f0, #006bed);
-   padding: 20px 40px;
-   -webkit-border-radius: 11px;
-   -moz-border-radius: 11px;
-   border-radius: 11px;
-   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   box-shadow: rgba(0,0,0,1) 0 1px 0;
-   text-shadow: rgba(0,0,0,.4) 0 1px 0;
-   color: #ffffff;
-   font-size: 24px;
-   font-family: Georgia, serif;
-   text-decoration: none;
-   vertical-align: middle;
+
    }
 .button2:hover {
    border-top-color: #0751a6;
@@ -117,26 +77,21 @@ body {
 #button_princess {
 	float: left;
 	height: 200px;
-	width: 47%;
+	width: 45%;
 }
 #button_frog {
 	float: left;
 	height: 200px;
-	width: 47%;
+	width: 45%;
 }
 #button {
 	height: 200px;
 	width: 100%;
 }
 #positionprincessbutton {
-	float: right;
+
 }
-#blankspace {
-	width: 6%;
-	height:200px;
-	float: left;
-	margin: 0;
-}
+
 #postitionfrogbutton {
 	float: left;
 }
@@ -145,3 +100,131 @@ body {
 	width: 100%;
 	height: 150px;
 }
+
+.input_hidden {
+    position: absolute;
+    left: -9999px;
+}
+
+
+.selected1 {
+
+width:250;
+background-image: url('../assets/frog.jpg');
+
+}
+
+
+.selected2 {
+
+z-index: 10;
+position: relative;
+background-image: url('../assets/frog.jpg');
+
+}
+
+#emotion {
+	height : 100px;
+	width: 100%;
+}
+#emotion label {
+	
+    float: right;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#sep2 label {
+    float: left;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#emotion label #button_princess {
+   
+	float: right;
+	height: 40px;
+	width: 160px;
+    border-top: 1px solid #df3d83;
+   background : #df3d83;
+   background: -webkit-gradient(linear, left top, left bottom, from(#f59dc3), to(#df3d83));
+   background: -webkit-linear-gradient(top, #f59dc3, #df3d83);
+   background: -moz-linear-gradient(top, #f59dc3, #df3d83);
+   background: -ms-linear-gradient(top, #f59dc3, #df3d83);
+   background: -o-linear-gradient(top, #f59dc3, #df3d83);
+   padding: 20px 40px;
+   -webkit-border-radius: 11px;
+   -moz-border-radius: 11px;
+   border-radius: 11px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: #ffffff;
+   font-size: 24px;
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+}
+
+#emotion label #button_frog {
+
+	float: left;
+	height: 40px;
+	width: 160px;
+	
+	border-top: 1px solid #006bed;
+   background: #006bed;
+   background: -webkit-gradient(linear, left top, left bottom, from(#69a8f0), to(#006bed));
+   background: -webkit-linear-gradient(top, #69a8f0, #006bed);
+   background: -moz-linear-gradient(top, #69a8f0, #006bed);
+   background: -ms-linear-gradient(top, #69a8f0, #006bed);
+   background: -o-linear-gradient(top, #69a8f0, #006bed);
+   padding: 20px 40px;
+   -webkit-border-radius: 11px;
+   -moz-border-radius: 11px;
+   border-radius: 11px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: #ffffff;
+   font-size: 24px;
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+}
+
+#emotion label #button_frog:hover {
+
+	float: left;
+	height: 40px;
+	width: 160px;
+	background: #fff;
+
+}
+
+#emotion label #button_frog:active {
+
+
+	background:yellow;
+
+}
+#sep1 {
+	height: 100px;
+	width: 46%;
+	float: left;
+}
+
+#blankspace2 {
+	width: 8%;
+
+}
+
+#sep2{
+	height: 100px;
+	width: 46%;
+	float: right;
+}
+
+

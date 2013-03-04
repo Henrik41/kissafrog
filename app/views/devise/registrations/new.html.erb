@@ -1,3 +1,5 @@
+
+
 <div id="container">
 <div id="header">
 
@@ -12,10 +14,22 @@
 </ul>
 </div><!--div header-->
 <div id="central">
+	</br>
+	
+
+	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true }) do |f| %>
+	
+<fieldset class="sectionwrap">
+		<legend>Basic Information</legend>
+	<%= devise_error_messages! %>
+
 <center>
-<img src="<%= image_path 'princess.jpg' %>" width="325" height="309" /><img src="<%= image_path 'frog.jpg' %>" width="325" height="309" />
-</center>
-</div>
+
+<img id='image_princess' src="<%= image_path 'princess.jpg' %>" width="325" height="309" />
+
+
+<img id ='image_frog' src="<%= image_path 'frog.jpg' %>" width="325" height="309" />
+
 
 
 <div id="downcentral"><!-- total own -->
@@ -23,35 +37,46 @@
 </br>
 
 
+<div id='step1'>
+<div id="emotion">
+<div id="sep1">
+	<%= f.radio_button(:sex,"female") %> 
+	 
+	<label for="user_sex_female">
 <div id = "button_princess"> <!-- space for button -->
-<div id="positionprincessbutton"> <!-- space for button real -->
-<a href="#" class="button" >I'm a Princess</a>
+	<div id="positionprincessbutton"> <!-- space for button real -->
+	I'm a Princess
+	</div>
+</div>
+
+	</label>
+</div>	
+		<div id="blankspace2"></div><!-- blank space -->
+
+<div id= "sep2">
+	<%= f.radio_button(:sex,"male") %>
+	
+
+		<label for="user_sex_male"><div id="button_frog">
+		<div id="positionfrogbutton">
+		 - I'm a Frog  -  
+		</div>
+		</div></label>
 </div>
 </div>
 
 
-<div id="blankspace"></div><!-- blank space -->
 
-<div id="button_frog">
-<div id="positionfrogbutton">
-<a href="#" class="button2"> - I'm a Frog  -  </a>
-</div>
-</div>
-
-</div><!--downcentral -->
-
-<div id="footer">
-   This will hold the footer
-</div>
-
-</div><!--div container-->
+</fieldset>
 
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true }) do |f| %>
-  <%= devise_error_messages! %>
 
-  <%= f.label :sex %>
-  <%= f.text_field :sex %>
+
+
+<fieldset class="sectionwrap">
+
+	<legend>step 2</legend>
+<div id='step2'>
 
   <%= f.label :name %>
   <%= f.text_field :name %>
@@ -64,12 +89,23 @@
 
   <%= f.label :city %>
   <%= f.text_field :city %>
+</div>
+</fieldset>
 
+<fieldset class="sectionwrap">
+<div id='step3'>
    <%= f.label :birthdate %>
   <%= f.date_select :birthdate %>
 
+    <%= f.file_field :avatar %>
+</div>
+</fieldset>
+
+<fieldset class="sectionwrap">
+
+<div id='step4'>
   <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  <%= f.email_field :email %></div>
 
   <div><%= f.label :password %><br />
   <%= f.password_field :password %></div>
@@ -77,9 +113,50 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
-    <%= f.file_field :avatar %>
 
-  <div><%= f.submit "Sign up" %></div>
+
+  <div><%= f.submit "Sign up" %> </div>
+
+ </div>
+
+	</fieldset>
+
+
+</div><!--downcentral -->
+
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+
+<div id="footer">
+   This will hold the footer
+</div>
+
+</div><!--div container-->
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+<script>
+$('#emotion input:radio').addClass('input_hidden');
+
+$('#sep1 label').click(function(){
+	$("#image_princess").attr("src","../assets/princess2.jpg");
+	$("#image_frog").attr("src","../assets/frog.jpg");
+    
+    $('#sep2 label').removeClass('selected2');
+
+});
+
+$('#sep2 label').click(function(){
+	$("#image_princess").attr("src","../assets/princess.jpg");
+	$("#image_frog").attr("src","../assets/frog2.jpg");
+  
+    $('#sep1 label').removeClass('selected1');
+
+});
+
+</script>
+
+
+
