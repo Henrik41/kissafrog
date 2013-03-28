@@ -60,7 +60,7 @@ formtowizard.prototype={
 			else{
 				this.sections.$sections.eq(this.currentsection).hide().end().eq(i).show()
 			}
-			this.paginatediv.$status.text("Page "+(i+1)+" of "+this.sections.count) //update current page status text
+			//update current page status text
 			this.paginatediv.$navlinks.css('visibility', 'visible')
 			if (i==0) //hide "prev" link
 				this.paginatediv.$navlinks.eq(0).css('visibility', 'hidden')
@@ -92,7 +92,7 @@ formtowizard.prototype={
 		function invalidate(el){
 			validated=false
 			invalidtext.push("- "+ (el.id || el.name))
-		}
+		} 
 		for (var i=0; i<elements.length; i++){
 			if (/(text)/.test(elements[i].type) && elements[i].value==""){ //text and textarea elements
 				invalidate(elements[i])
@@ -146,7 +146,7 @@ formtowizard.prototype={
 				}
 				$section.data('elements', []) //empty array to contain elements within this section that should be validated for data (applicable only if validate option is defined)
 				//create each "step" DIV and add it to main Steps Container:
-				var $thestep=$('<div class="step disabledstep" />').data('section', i).html('Step '+(i+1)+'<div class="smalltext">'+$section.find('legend:eq(0)').text()+'</div>').appendTo($stepsguide)
+				var $thestep=$('<div class="step disabledstep" />').data('section', i).html($section.find('legend:eq(0)').text()+'</div>').appendTo($stepsguide)
 				$thestep.click(function(){ //assign behavior to each step div
 					thiswizard.loadsection($(this).data('section'))
 				})
@@ -159,7 +159,7 @@ formtowizard.prototype={
 			//$stepsguide.insertBefore($sectionswrapper) //add Steps Container before sectionswrapper container
 			var $thesteps=$stepsguide.find('div.step')
 			//create pagination DIV and add it to end of form:
-			var $paginatediv=$('<div class="formpaginate" style="overflow:hidden;"><span class="prev" style="float:left">Back</span> <span class="status">Step 1 of </span> <span class="next" style="float:right">Next</span></div>')
+			var $paginatediv=$('<div class="formpaginate" style="overflow:hidden;"><center><span class="prev" >Back</span> <span class="next" >Next</span></center></div>')
 			$theform.append($paginatediv)
 			thiswizard.$theform=$theform
 			if (setting.revealfx[0]=="slide"){

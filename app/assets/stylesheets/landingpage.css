@@ -88,13 +88,7 @@ body {
 	height: 200px;
 	width: 100%;
 }
-#positionprincessbutton {
 
-}
-
-#postitionfrogbutton {
-	float: left;
-}
 #footer {
 	background-color: #666;
 	width: 100%;
@@ -195,21 +189,7 @@ background-image: url('../assets/frog.jpg');
    vertical-align: middle;
 }
 
-#emotion label #button_frog:hover {
 
-	float: left;
-	height: 40px;
-	width: 160px;
-	background: #fff;
-
-}
-
-#emotion label #button_frog:active {
-
-
-	background:yellow;
-
-}
 #sep1 {
 	height: 100px;
 	width: 46%;
@@ -227,4 +207,19 @@ background-image: url('../assets/frog.jpg');
 	float: right;
 }
 
+.left_pic{
+	width: 20%;
+	height: 513px;
+	float: left;
+}
+
+.center_pics{
+		width: 60%;
+		height: 513px;
+		float: left;
+}
+
+.right_pic{	width: 20%;
+	height: 513px;
+	float: left;}
 

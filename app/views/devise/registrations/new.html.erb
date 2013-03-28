@@ -1,126 +1,119 @@
+<!-- this page is the main registration page -->
+<div id="container"> <!--div of main container-->
+	<div id="header"> <!--div of header-->
+		<!-- put logo in -->
+		<img src="<%= image_path 'logo.png' %>" width="357" height="100" />
 
-
-<div id="container">
-<div id="header">
-
-
-
-<img src="<%= image_path 'logo.png' %>" width="357" height="100" />
-
-<ul id="topnav">
-    <li>About</li>
-   <li>Tour</li>
-   <li>Login</li>
-</ul>
-</div><!--div header-->
-<div id="central">
-	</br>
+				<ul id="topnav">
+    				<li>About</li>
+   					<li>Tour</li>
+   					<li>Login</li>
+				</ul>
+				
+	</div><!--div header ends here-->
 	
 
 	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true }) do |f| %>
 	
-<fieldset class="sectionwrap">
-		<legend>Basic Information</legend>
-	<%= devise_error_messages! %>
 
-<center>
+	</br>	
+		<fieldset class="sectionwrap">
+		<%= devise_error_messages! %>
 
-<img id='image_princess' src="<%= image_path 'princess.jpg' %>" width="325" height="309" />
+		<div class="left_pic">
+			pictures here
+		</div>
+		
+		
+        <div class="center_pics">
+			<img id='image_princess' src="<%= image_path 'princess.jpg' %>" width="325" height="309" />
 
-
-<img id ='image_frog' src="<%= image_path 'frog.jpg' %>" width="325" height="309" />
-
-
-
-<div id="downcentral"><!-- total own -->
-</br>
-</br>
-
-
-<div id='step1'>
-<div id="emotion">
-<div id="sep1">
-	<%= f.radio_button(:sex,"female") %> 
+			<img id ='image_frog' src="<%= image_path 'frog.jpg' %>" width="325" height="309" />
+			<div id="downcentral"><!-- total own -->
+					</br></br>		
+						<div id="emotion">
+								<div id="sep1">
+									<%= f.radio_button(:sex,"female") %> 
 	 
-	<label for="user_sex_female">
-<div id = "button_princess"> <!-- space for button -->
-	<div id="positionprincessbutton"> <!-- space for button real -->
-	I'm a Princess
-	</div>
-</div>
+										<label for="user_sex_female">
+											<div id = "button_princess"> <!-- space for button -->								
+													I'm a Princess
+					
+											</div> <!-- end button_princess-->
 
-	</label>
-</div>	
+										</label>
+									</div><!-- end sep1 -->
+									
 		<div id="blankspace2"></div><!-- blank space -->
 
-<div id= "sep2">
-	<%= f.radio_button(:sex,"male") %>
+								<div id= "sep2">
+									<%= f.radio_button(:sex,"male") %>
 	
 
-		<label for="user_sex_male"><div id="button_frog">
-		<div id="positionfrogbutton">
-		 - I'm a Frog  -  
-		</div>
-		</div></label>
+										<label for="user_sex_male">
+											<div id="button_frog">
+		 											- I'm a Frog  -  	
+											</div> <!--end button_frog -->
+										</label>
+								</div><!-- end sep2 -->
+          </div><!--emotion-->
 </div>
 </div>
+			<div class="right_pic">pictures here too</div>
+			</fieldset> 
 
+			<fieldset class="sectionwrap"><!-- lets begin a new section -->
 
+				<div class="left_pic">
+				</div>
+				  <div class="center_pics">
+  				<%= f.label :name %>
+  				<%= f.text_field :name %>
+			</br>
+			</br>
 
-</fieldset>
+               
+  				<%= f.label :country %>
+  				<%= f.text_field :country %>
 
+  				<%= f.label :province %>
+  				<%= f.text_field :province %>
 
+  				<%= f.label :city %>
+  				<%= f.text_field :city %>
 
-
-
-<fieldset class="sectionwrap">
-
-	<legend>step 2</legend>
-<div id='step2'>
-
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :country %>
-  <%= f.text_field :country %>
-
-  <%= f.label :province %>
-  <%= f.text_field :province %>
-
-  <%= f.label :city %>
-  <%= f.text_field :city %>
 </div>
-</fieldset>
-
-<fieldset class="sectionwrap">
-<div id='step3'>
-   <%= f.label :birthdate %>
-  <%= f.date_select :birthdate %>
-
-    <%= f.file_field :avatar %>
-</div>
-</fieldset>
-
-<fieldset class="sectionwrap">
-
-<div id='step4'>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+<div class="right_pic"></div>
+			</fieldset> <!-- this ends the second fieldset of 4 -->
 
 
+			<fieldset class="sectionwrap">
 
-  <div><%= f.submit "Sign up" %> </div>
+   				<%= f.label :birthdate %>
+ 				<%= f.date_select :birthdate, :order => [:day, :month, :year], :start_year => 1950 %>
 
- </div>
+    			<%= f.file_field :avatar %>
 
-	</fieldset>
+			</fieldset>
 
+			<fieldset class="sectionwrap">
+
+				<div>
+  				<%= f.label :email %><br />
+  				<%= f.email_field :email %>
+				</div>
+				<div>
+  				<%= f.label :password %><br />
+  				<%= f.password_field :password %>
+				</div>
+				<div>
+  				<%= f.label :password_confirmation %><br />
+  				<%= f.password_field :password_confirmation %>
+				</div>
+
+  				<div><%= f.submit "Sign up" %> </div>
+
+			</fieldset>
 
 </div><!--downcentral -->
 
@@ -150,13 +143,39 @@ $('#sep1 label').click(function(){
 
 $('#sep2 label').click(function(){
 	$("#image_princess").attr("src","../assets/princess.jpg");
-	$("#image_frog").attr("src","../assets/frog2.jpg");
+	$("#image_frog").attr("src","../assets/forg.gif");
   
     $('#sep1 label').removeClass('selected1');
 
 });
 
 </script>
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script src="../assets/jquery-1.4.4.min.js"></script>
+<script src="../assets/jquery-ui-1.8.7.min.js"></script>
+<script src="../assets/jquery.ui.addresspicker.js"></script>
+<script>
+$(function() {
 
+	var addresspickerMap = $( "#user_country" ).addresspicker({
+		regionBias: "fr",
+	  elements: {
+	    map:      "#map",
+	    lat:      "#lat",
+	    lng:      "#lng",
+	    locality: '#user_city',
+	    administrative_area_level_2: '#administrative_area_level_2',
+	    administrative_area_level_1: '#user_province',
+	    country:  '#user_country',
+	    postal_code: '#postal_code',
+    type:    '#type' 
+	  }
+	});
+	var gmarker = addresspickerMap.addresspicker( "marker");
+	gmarker.setVisible(true);
+	addresspickerMap.addresspicker( "updatePosition");
+	
+});
+</script>
 
 
