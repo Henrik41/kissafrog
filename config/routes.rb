@@ -1,4 +1,7 @@
 Kissafrog::Application.routes.draw do
+  resources :albums
+
+
   get "info/index"
 
   devise_for :users
