@@ -1,0 +1,55 @@
+
+
+<p>
+  <b>Name:</b>
+  <%=h @album.description %>
+</p>
+
+<p>
+  <b>Avatar:</b>
+  <%= image_tag @album.avatar.url(:normal), :id => 'cropbox' %>
+<div style="width:<%= Album::AVATAR_SW %>px;height:<%= Album::AVATAR_SH %>px;overflow:hidden">
+  <%= image_tag @album.avatar.url(:normal), :id => 'preview' %>
+</div>
+</p>
+
+<%= form_for @album do |f| %>
+  <%= f.text_field :crop_x, :id => 'crop_x' %><br />
+  <%= f.text_field :crop_y, :id => 'crop_y' %><br />
+  <%= f.text_field :crop_w, :id => 'crop_w' %><br />
+  <%= f.text_field :crop_h, :id => 'crop_h' %><br />
+  <%= f.submit "Crop!" %>
+<% end %>
+
+<%= link_to 'Edit', edit_album_path(@album) %> |
+<%= link_to 'Back', albums_path %>
+
+
+<script>
+  function showPreview(coords)
+  {
+    var rx = <%= Album::AVATAR_SW %> / coords.w;
+    var ry = <%= Album::AVATAR_SH %> / coords.h;
+    var ratio = <%= @album.avatar_geometry(:original).width %> / <%= @album.avatar_geometry(:normal).width %>;
+
+    $('#preview').css({
+      width: Math.round(rx * <%= @album.avatar_geometry(:normal).width.to_i %>) + 'px',
+      height: Math.round(ry * <%= @album.avatar_geometry(:normal).height.to_i %>) + 'px',
+      marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+      marginTop: '-' + Math.round(ry * coords.y) + 'px'
+    });
+    $('#crop_x').val(Math.round(coords.x * ratio));
+    $('#crop_y').val(Math.round(coords.y * ratio));
+    $('#crop_w').val(Math.round(coords.w * ratio));
+    $('#crop_h').val(Math.round(coords.h * ratio));
+  }
+
+  $(function() {
+    $('#cropbox').Jcrop({
+        onSelect: showPreview,
+        onChange: showPreview,
+        setSelect:   [ 0, 0, 240, 240 ],
+        aspectRatio: <%= Album::AVATAR_SW %>/<%= Album::AVATAR_SH %>
+      });
+  });
+</script>

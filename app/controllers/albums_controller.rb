@@ -2,7 +2,8 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
   def index
-    @albums = Album.all
+    @user = current_user
+    @albums = @user.albums.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +14,8 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
-    @album = Album.find(params[:id])
+    @user = current_user    
+    @album = @user.albums.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +26,9 @@ class AlbumsController < ApplicationController
   # GET /albums/new
   # GET /albums/new.json
   def new
-    @album = Album.new
+    @user = current_user
+    @album = @user.albums.new
+
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,45 +38,51 @@ class AlbumsController < ApplicationController
 
   # GET /albums/1/edit
   def edit
-    @album = Album.find(params[:id])
+    @user = current_user    
+    @album = @user.albums.find(params[:id])
   end
 
   # POST /albums
   # POST /albums.json
   def create
-    @album = Album.new(params[:album])
+    @user = current_user        
+    @album = @user.albums.new(params[:album])
 
-    respond_to do |format|
-      if @album.save
-        format.html { redirect_to @album, notice: 'Album was successfully created.' }
-        format.json { render json: @album, status: :created, location: @album }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @album.errors, status: :unprocessable_entity }
-      end
-    end
+    if @album.save
+       flash[:notice] = 'User was successfully created.'
+       if params[:album][:avatar].blank?
+         redirect_to @album
+       else
+         render :action => 'cropping'
+       end
+     else
+       render :action => 'new'
+     end
   end
 
   # PUT /albums/1
   # PUT /albums/1.json
   def update
-    @album = Album.find(params[:id])
+    @user = current_user
+    @album = @user.albums.find(params[:id])
 
-    respond_to do |format|
-      if @album.update_attributes(params[:album])
-        format.html { redirect_to @album, notice: 'Album was successfully updated.' }
-        format.json { head :no_content }
+     if @user.update_attributes params[:album]
+        flash[:notice] = 'User was successfully updated.'
+        if params[:album][:avatar].blank?
+          redirect_to @album
+        else
+          render :action => 'cropping'
+        end
       else
-        format.html { render action: "edit" }
-        format.json { render json: @album.errors, status: :unprocessable_entity }
+        render :action => "edit"
       end
-    end
   end
 
   # DELETE /albums/1
   # DELETE /albums/1.json
   def destroy
-    @album = Album.find(params[:id])
+    @user = current_user
+    @album = @user.album.find(params[:id])
     @album.destroy
 
     respond_to do |format|

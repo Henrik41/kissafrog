@@ -12,6 +12,7 @@
 
 <% @albums.each do |album| %>
   <tr>
+	  <td> <%= image_tag album.avatar.url %></td>
     <td><%= album.user_id %></td>
     <td><%= album.description %></td>
     <td><%= album.setting %></td>
