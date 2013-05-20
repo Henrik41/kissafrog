@@ -1,0 +1,57 @@
+<h1>My Profile</h1>
+<p><%= image_tag @mainpic.avatar.url(:original) %></p>
+<%= @mainpic.description %>
+
+
+</br>
+
+<% @allpics.each do |pic|%>
+  		<%= form_for pic, :remote => true  do |f|  %>
+			<%= image_tag pic.avatar.url(:normal) %>
+			description:
+			<%= pic.description %>
+
+
+<%= f.label pic.id, :id=> "create_item <%= pic.id %>"
+
+
+<div class="field">
+	<%= f.label :setting %><br />
+	<%= f.check_box :setting, :class => 'activity_status' %>
+</div>
+
+
+<td><%= link_to 'Edit', edit_album_path(pic) %></td>
+<td><%= link_to 'Destroy', pic, method: :delete, data: { confirm: 'Are you sure?' } %></td></br>
+<% end %></br>
+<% end %>
+
+
+<script>
+$("input:checkbox").click(function() {
+    if ($(this).is(":checked") === true) {
+        var group = "input:checkbox[name='" + $(this).attr("name") + "']";
+        $(group).attr("checked", false);
+        $(this).attr("checked", true);
+    } else {
+        $(this).is(":checked", false);
+    }
+});
+
+</script>
+
+
+<script>
+ 
+$('activity_status')http://www.pof.com/viewprofile.aspx?profile_id=18324761.live("change", function() { 
+	    var abc = $('#create_item').text();
+        $.ajax({
+            url: "/albums/show.js.erb",
+            beforeSend: function() { alert(abc); },
+            data: JSON.stringify(abc),
+            success: function() { alert("helloend"); }
+        });
+    });
+
+
+</script>

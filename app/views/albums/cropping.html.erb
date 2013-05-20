@@ -7,9 +7,10 @@
 
 <p>
   <b>Avatar:</b>
-  <%= image_tag @album.avatar.url(:normal), :id => 'cropbox' %>
+   
+  <%= image_tag @album.avatar.url(:original), :id => 'cropbox' %>
 <div style="width:<%= Album::AVATAR_SW %>px;height:<%= Album::AVATAR_SH %>px;overflow:hidden">
-  <%= image_tag @album.avatar.url(:normal), :id => 'preview' %>
+  <%= image_tag @album.avatar.url(:original), :id => 'preview' %>
 </div>
 </p>
 
@@ -30,11 +31,11 @@
   {
     var rx = <%= Album::AVATAR_SW %> / coords.w;
     var ry = <%= Album::AVATAR_SH %> / coords.h;
-    var ratio = <%= @album.avatar_geometry(:original).width %> / <%= @album.avatar_geometry(:normal).width %>;
+    var ratio = <%= @album.avatar_geometry(:original).width %> / <%= @album.avatar_geometry(:original).width %>;
 
     $('#preview').css({
-      width: Math.round(rx * <%= @album.avatar_geometry(:normal).width.to_i %>) + 'px',
-      height: Math.round(ry * <%= @album.avatar_geometry(:normal).height.to_i %>) + 'px',
+      width: Math.round(rx * <%= @album.avatar_geometry(:original).width.to_i %>) + 'px',
+      height: Math.round(ry * <%= @album.avatar_geometry(:original).height.to_i %>) + 'px',
       marginLeft: '-' + Math.round(rx * coords.x) + 'px',
       marginTop: '-' + Math.round(ry * coords.y) + 'px'
     });
@@ -48,7 +49,7 @@
     $('#cropbox').Jcrop({
         onSelect: showPreview,
         onChange: showPreview,
-        setSelect:   [ 0, 0, 240, 240 ],
+        setSelect:   [0, 0, 240, 240 ],
         aspectRatio: <%= Album::AVATAR_SW %>/<%= Album::AVATAR_SH %>
       });
   });

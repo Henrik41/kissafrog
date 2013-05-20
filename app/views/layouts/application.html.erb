@@ -2,17 +2,18 @@
 <html>
 <head>
   <title>Kissafrog</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    "application","formwizard","jquery.ui.theme","landingpage","jquery.ui.autocomplete","jquery.gritter","jquery.Jcrop","jquery.Jcrop.min" %>
+  <%= javascript_include_tag "application","jquery-1.4.4.min","jquery-ui-1.8.7.min","jquery.color","jquery.gritter","formwizard","jquery.ui.addresspicker","jquery.Jcrop" %>
   <%= csrf_meta_tags %>
 
 <script type="text/javascript">
 
 var myform=new formtowizard({
 	formid: 'new_user',
-	persistsection: true,
+	persistsection: false,
+	validate: ['user[sex]'],
 	revealfx: ['slide', 500]
-})
+});
 
 </script>
 </head>

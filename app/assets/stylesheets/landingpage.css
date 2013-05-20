@@ -11,7 +11,7 @@ body {
 #header {
 	height: 105px;
 	width: 100%;
-	background-color: #D2EDFF;
+	background-image: url('../assets/header.gif');
 }
 
 #topnav {
@@ -212,7 +212,11 @@ background-image: url('../assets/frog.jpg');
 	height: 513px;
 	float: left;
 }
-
+#left_pic3{
+	width: 20%;
+	height: 513px;
+	float: left;
+}
 .center_pics{
 		width: 60%;
 		height: 513px;
@@ -223,3 +227,6 @@ background-image: url('../assets/frog.jpg');
 	height: 513px;
 	float: left;}
 
+input { font-size: 28px; }
+
+.user_birthdate { font-size: 28px; }

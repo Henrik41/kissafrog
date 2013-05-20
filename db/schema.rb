@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130331183333) do
+ActiveRecord::Schema.define(:version => 20130412152858) do
 
   create_table "albums", :force => true do |t|
     t.integer  "user_id"
@@ -23,6 +23,18 @@ ActiveRecord::Schema.define(:version => 20130331183333) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+  end
+
+  create_table "alns", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "testa", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -52,5 +64,12 @@ ActiveRecord::Schema.define(:version => 20130331183333) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "xtras", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "picid"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

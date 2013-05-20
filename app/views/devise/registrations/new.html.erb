@@ -2,7 +2,7 @@
 <div id="container"> <!--div of main container-->
 	<div id="header"> <!--div of header-->
 		<!-- put logo in -->
-		<img src="<%= image_path 'logo.png' %>" width="357" height="100" />
+		
 
 				<ul id="topnav">
     				<li>About</li>
@@ -11,20 +11,18 @@
 				</ul>
 				
 	</div><!--div header ends here-->
-	
-
-	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true }) do |f| %>
+  
+	<%= form_for resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true } do |f| %>
 	
 
 	</br>	
 		<fieldset class="sectionwrap">
 		<%= devise_error_messages! %>
 
-		<div class="left_pic">
-			pictures here
-		</div>
-		
-		
+<div id="left_pic3">
+		<%= link_to " click here", new_album_path, :id =>"gritterid", remote: true %>
+</div>
+	
         <div class="center_pics">
 			<img id='image_princess' src="<%= image_path 'princess.jpg' %>" width="325" height="309" />
 
@@ -67,37 +65,46 @@
 				<div class="left_pic">
 				</div>
 				  <div class="center_pics">
-  				<%= f.label :name %>
-  				<%= f.text_field :name %>
-			</br>
+		<section class='input'>
+  			<%= f.label :name %>
+  					<div><%= f.text_field :name %></div>
 			</br>
 
-               
-  				<%= f.label :country %>
-  				<%= f.text_field :country %>
-
+               <%= f.label :wherelive %>
+				 <div><%= f.text_field :wherelive, :placeholder => "Where do you live?" %></div>
+				
+				</br>
+				
+  						<%= f.label :country %>
+  		<div><%= f.text_field :country %></div>
+		</br>
   				<%= f.label :province %>
-  				<%= f.text_field :province %>
-
+  				<div><%= f.text_field :province %></div>
+		</br>
   				<%= f.label :city %>
-  				<%= f.text_field :city %>
-
+  			<div>	<%= f.text_field :city %></div>
+		</section>
 </div>
 <div class="right_pic"></div>
 			</fieldset> <!-- this ends the second fieldset of 4 -->
 
 
 			<fieldset class="sectionwrap">
+				<div class="left_pic">
+				</div>
+				 <div class="center_pics">
 
-   				<%= f.label :birthdate %>
- 				<%= f.date_select :birthdate, :order => [:day, :month, :year], :start_year => 1950 %>
+   				<%= f.label :birthdate, :id => "user_birthdate" %>
+ 				<div><%= f.date_select :birthdate, :order => [:day, :month, :year], :start_year => 1950, :id => "user_birthdate" %></div>
 
-    			<%= f.file_field :avatar %>
-
+   
+                 </div>
 			</fieldset>
 
 			<fieldset class="sectionwrap">
-
+				<div class="left_pic">
+				</div>
+ <div class="center_pics">
 				<div>
   				<%= f.label :email %><br />
   				<%= f.email_field :email %>
@@ -112,7 +119,7 @@
 				</div>
 
   				<div><%= f.submit "Sign up" %> </div>
-
+</div>
 			</fieldset>
 
 </div><!--downcentral -->
@@ -134,7 +141,7 @@
 $('#emotion input:radio').addClass('input_hidden');
 
 $('#sep1 label').click(function(){
-	$("#image_princess").attr("src","../assets/princess2.jpg");
+	$("#image_princess").attr("src","../assets/princess2.gif");
 	$("#image_frog").attr("src","../assets/frog.jpg");
     
     $('#sep2 label').removeClass('selected2');
@@ -143,7 +150,7 @@ $('#sep1 label').click(function(){
 
 $('#sep2 label').click(function(){
 	$("#image_princess").attr("src","../assets/princess.jpg");
-	$("#image_frog").attr("src","../assets/forg.gif");
+	$("#image_frog").attr("src","../assets/frog2.gif");
   
     $('#sep1 label').removeClass('selected1');
 
@@ -157,7 +164,7 @@ $('#sep2 label').click(function(){
 <script>
 $(function() {
 
-	var addresspickerMap = $( "#user_country" ).addresspicker({
+	var addresspickerMap = $( "#user_wherelive" ).addresspicker({
 		regionBias: "fr",
 	  elements: {
 	    map:      "#map",
@@ -177,5 +184,66 @@ $(function() {
 	
 });
 </script>
+<script type="text/javascript" src="http://www.google.com/jsapi?"></script>
 
+<script>
+
+function geoTest() {
+
+	if (google.loader.ClientLocation) {
+		
+		var latitude = google.loader.ClientLocation.latitude;
+		var longitude = google.loader.ClientLocation.longitude;
+		var city = google.loader.ClientLocation.address.city;
+		var country = google.loader.ClientLocation.address.country;
+		var country_code = google.loader.ClientLocation.address.country_code;
+		var region = google.loader.ClientLocation.address.region;
+	   
+		var text = 'Your Location<br /><br />Latitude: ' + latitude + '<br />Longitude: ' + longitude + '<br />City: ' + city + '<br />Country: ' + country + '<br />Country Code: ' + country_code + '<br />Region: ' + region;
+	
+		
+		
+	} else {
+		
+		var text = 'Google was not able to detect your location';
+	
+	}
+	
+	document.write(text);
+	
+
+}
+
+
+geoTest();
+
+
+</script>
+
+
+
+
+<script type="text/javascript" src="../assets/jquery.gritter.js"></script>
+<script>  
+$.fn.simulateClick = function() {
+    return this.each(function() {
+        if('createEvent' in document) {
+            var doc = this.ownerDocument,
+                evt = doc.createEvent('MouseEvents');
+            evt.initMouseEvent('click', true, true, doc.defaultView, 1, 0, 0, 0, 0, false, false, false, false, 0, null);
+            this.dispatchEvent(evt);
+        } else {
+            this.click(); // IE
+        }
+    });
+}
+
+<% (1..1).each do |i| %>
+
+   $('#gritterid').simulateClick();
+
+
+<% end %>
+// $('#user_wherelive').val(google.loader.ClientLocation.address.city+', '+ google.loader.ClientLocation.address.region+', '+google.loader.ClientLocation.address.country);
+</script>
 

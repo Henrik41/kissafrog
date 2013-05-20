@@ -1,9 +1,12 @@
 Kissafrog::Application.routes.draw do
+  get "profile/index"
+
   resources :albums
 
 
   get "info/index"
-
+  get "profile/index"
+   
   devise_for :users
 
   # The priority is based upon order of creation:
