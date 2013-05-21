@@ -9,7 +9,7 @@ set :deploy_via, :remote_cache
 set :use_sudo, false
 set :test_log, "log/capistrano-unit-test.log"
 set :scm, "git"
-set :repository, "git@github.com:henrik41/#{application}.git"
+set :repository, "git@github.com:Henrik41/kissafrog.git"
 set :branch, "master"
 
 default_run_options[:pty] = true
