@@ -12,6 +12,8 @@ set :scm, "git"
 set :repository, "git@github.com:Henrik41/kissafrog.git"
 set :branch, "master"
 
+
+
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
