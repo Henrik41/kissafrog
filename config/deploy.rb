@@ -27,17 +27,7 @@ namespace :deploy do
     end
   end
 
-  task :run_tests, roles: :app do
-    puts "--> Running unit tests, please wait..."
-    unless system "bundle exec rake test > #{test_log} 2>&1"
-      puts "--> Tests failed, see #{test_log} for test output"
-      exit
-    else
-      puts "--> Tests passed"
-      system "rm #{test_log}"
-    end
-  end
-  before "deploy", "deploy:run_tests"
+
 
   task :setup_config, roles: :app do
     sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
