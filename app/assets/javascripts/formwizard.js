@@ -159,7 +159,7 @@ formtowizard.prototype={
 			//$stepsguide.insertBefore($sectionswrapper) //add Steps Container before sectionswrapper container
 			var $thesteps=$stepsguide.find('div.step')
 			//create pagination DIV and add it to end of form:
-			var $paginatediv=$('<div class="formpaginate" style="overflow:hidden;"><center><span class="prev" >Back</span> <span class="next" >Next</span></center></div>')
+			var $paginatediv=$('<div class="formpaginate" style="overflow:hidden;"><div class="sec1"><div class="prev">Back</div> </div><div class="sec2"></div><div class="sec3"><div class="next" >Next</div></div></div>')
 			$theform.append($paginatediv)
 			thiswizard.$theform=$theform
 			if (setting.revealfx[0]=="slide"){
@@ -170,7 +170,7 @@ formtowizard.prototype={
 				thiswizard.sections={$sections:$sections, count:$sections.length} //remember various parts of section container
 			}
 			thiswizard.$thesteps=$thesteps //remember this ref
-			thiswizard.paginatediv={$main:$paginatediv, $navlinks:$paginatediv.find('span.prev, span.next'), $status:$paginatediv.find('span.status')} //remember various parts of pagination DIV
+			thiswizard.paginatediv={$main:$paginatediv, $navlinks:$paginatediv.find('div.prev, div.next'), $status:$paginatediv.find('span.status')} //remember various parts of pagination DIV
 			thiswizard.paginatediv.$main.click(function(e){ //assign behavior to pagination buttons
 				if (/(prev)|(next)/.test(e.target.className))
 					thiswizard.loadsection(e.target.className)

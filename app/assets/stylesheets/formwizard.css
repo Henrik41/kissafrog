@@ -6,17 +6,54 @@ padding:5px;
 }
 
 div.formpaginate {
-	top: 50px;
-	height: 100px;
-}
-div.formpaginate .prev, div.formpaginate .next{ /*CSS for "prev" and "next" SPAN elements within paginate container */
 
-border-radius:25px;
--webkit-border-radius:25px;
--moz-border-radius:25px;
-padding:22px 25px;
+	width: auto;
+		height: 150px;
+}
+
+
+div.sec1{
+	float: left;
+	width:20%;
+	height: 150px;
+}
+div.sec2{
+	float: left;
+	width:40%;
+		height: 150px;
+}
+div.sec3{
+	float:right;
+	width:20%;
+		height: 150px;
+}
+
+div.formpaginate .sec1 .prev{
+	font-size: x-large;
+	float: right;
+	width: 45px;
+	border-radius:45px;
+	-webkit-border-radius:45px;
+	-moz-border-radius:45px;
+	padding:25px 25px;
+	background:darkred;
+	color:white;
+	cursor:hand;
+	cursor:pointer;
+} 
+
+
+div.formpaginate .sec3 .next{ /*CSS for "prev" and "next" SPAN elements within paginate container */
+font-size: x-large;
+float: left;
+width: 45px;
+border-radius:45px;
+-webkit-border-radius:45px;
+-moz-border-radius:45px;
+padding:25px 25px;
 background:darkred;
 color:white;
 cursor:hand;
 cursor:pointer;
 }
+
