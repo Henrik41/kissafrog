@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  headlines: MyString
+  say: MyText
+  interests: MyString
+  user_id: 1
+
+two:
+  headlines: MyString
+  say: MyText
+  interests: MyString
+  user_id: 1

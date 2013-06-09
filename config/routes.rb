@@ -1,4 +1,7 @@
 Kissafrog::Application.routes.draw do
+  resources :saysomethings
+
+
   get "profile/index"
 
   resources :albums

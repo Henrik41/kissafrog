@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Headlines:</b>
+  <%= @saysomething.headlines %>
+</p>
+
+<p>
+  <b>Say:</b>
+  <%= @saysomething.say %>
+</p>
+
+<p>
+  <b>Interests:</b>
+  <%= @saysomething.interests %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @saysomething.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_saysomething_path(@saysomething) %> |
+<%= link_to 'Back', saysomethings_path %>

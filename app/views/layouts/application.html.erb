@@ -5,16 +5,26 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application","jquery-1.4.4.min","jquery-ui-1.8.7.min" %>
   <%= csrf_meta_tags %>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../assets/formwizard.css" />
+
+<script src="formwizard.js" type="text/javascript">
+
+/***********************************************
+* jQuery Form to Form Wizard- (c) Dynamic Drive (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for this script and 100s more.
+***********************************************/
+
+</script>
 
 <script type="text/javascript">
-
-var myform=new formtowizard({
-	formid: 'new_user',
-	persistsection: false,
-	validate: ['user[sex]'],
-	revealfx: ['slide', 500]
-});
-
+var myform3=new formtowizard({
+ formid: 'staff_feedbackform',
+ validate: ['staff_username'],
+ revealfx: ['slide', 500] //<--no comma after last setting
+})
 </script>
 </head>
 <body>

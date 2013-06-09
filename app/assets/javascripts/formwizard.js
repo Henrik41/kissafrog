@@ -74,13 +74,17 @@ formtowizard.prototype={
 
 	addvalidatefields:function(){
 			var $=jQuery, setting=this.setting, theform=this.$theform.get(0), validatefields=[]
+
 			var validatefields=setting.validate //array of form element ids to validate
 			for (var i=0; i<validatefields.length; i++){
-				var el=theform.elements[validatefields[i]] //reference form element
+				var el=theform.elements[validatefields[i]] //reference form element	
+			    
 				if (el){ //if element is defined
 					var $section=$(el).parents('fieldset.sectionwrap:eq(0)') //find fieldset.sectionwrap this form element belongs to
+					
 					if ($section.length==1){ //if element is within a fieldset.sectionwrap element
 						$section.data('elements').push(el) //cache this element inside corresponding section
+				
 					}
 				}
 			}
@@ -89,6 +93,7 @@ formtowizard.prototype={
 
 		validate:function(section){
 			var elements=this.sections.$sections.eq(section).data('elements') //reference elements within this section that should be validated
+					
 			var validated=true, invalidtext=["Please fill out the following fields:\n"]
 			function invalidate(el){
 				validated=false
