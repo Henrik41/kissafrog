@@ -1,0 +1,25 @@
+<div id="mainphoto">
+	<div id="mainphotoselect">
+<% @mainpic.each do |mainpic| %>
+	   <%= image_tag mainpic.avatar.url(:normal) %>
+<% end %>	
+	</div>
+</div>
+
+<div id="otherpics">
+	<div id="otherpicsselect">
+<% @albums.each do |album| %>
+  <tr>
+	  <td> <%= image_tag album.avatar.url(:small) %></td>
+
+    <td><%= link_to 'Show', album %></td>
+    <td><%= link_to 'Edit', edit_album_path(album) %></td>
+    <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+	</div>
+</div>
+
+<br />
+
+<%= link_to 'New Album', new_album_path %>

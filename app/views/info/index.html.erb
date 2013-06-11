@@ -1,6 +1,112 @@
-<h1>Info#index</h1>
-<p>Find me in app/views/info/index.html.erb</p>
+<div id="container"> <!--div of main container-->
+	<div id="header"> <!--div of header-->
+		<!-- put logo in -->
+		
 
-<%= @user.inspect %>
+				<ul id="topnav">
+    				<li>About</li>
+   					<li>Tour</li>
+   					<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+				</ul>
+				
 
-<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+
+
+
+		</div><!--div header ends here-->
+		
+</br>
+		<div id = "sectionpic">
+
+			<div id = "mainpic">
+				<div id= "themainpic">
+					<% @mainpic.each do |mainpic| %>
+					
+						    <div id="box-1" class="box">  
+						     <td>  <%= image_tag mainpic.avatar.url(:normal) %></td>  
+						        <span class="caption simple-caption">  
+						        <p>Simple Caption</p>  
+						        </span>  
+						    </div>
+						  
+					<% end %>
+				</div>
+
+			</div>
+
+			<div id= "many_small_pics">
+        		<div id="mainwrapper">
+				
+				<% @albums.each do |album| %>
+				 
+				    <div id="box-1" class="box">  
+				     <td> <%= image_tag album.avatar.url(:normal) %></td>  
+				        <span class="caption simple-caption">  
+				        <p>Simple Caption</p>  
+				        </span>  
+				    </div>  
+				<% end %>
+
+		
+			<%	for i in 0..(@numpic-1) %>
+
+				 
+				    <div id="box-1" class="box">  
+				     <td> <img src="smiley.gif" > </td>  
+				        <span class="caption simple-caption">  
+				        <p>Simple Caption</p>  
+				        </span>  
+				    </div>  
+				<% end %>
+			
+				</div> <!-- end of #mainwrapper-->
+
+		     </div>
+		</div>
+
+		<div class = "sectionpause">
+			</br>
+		</div>
+
+		<div id= "sectiondescription">
+			<div id = "description_up">
+			<h1>	About me: </h1>
+			</div>
+			<div id = "description">
+				<p>
+				  <h1>Headlines:</h1>
+				  <%= @saysomething.headlines %>
+				</p>
+
+				<p>
+				  <h1>Say:</h1>
+				  <%= @saysomething.say %>
+				</p>
+
+				<p>
+				  <h1>Interests:</h1>
+				  <%= @saysomething.interests %>
+				</p>
+				
+				<%= link_to 'Edit', edit_saysomething_path(@saysomething) %>
+			</div>
+		</div>
+
+		<div class = "sectionpause">
+		</div>
+
+		<div id= "sectionprofileinfo">
+			<div id= "profile_up">
+			</div>
+			<div id= "profile">
+			</div>
+		</div>
+
+		<div class = "sectionpause">
+		</div>
+
+		<div id= "footer">
+		</div>
+		</br>
+
+</div>
