@@ -1,0 +1,85 @@
+<%= form_for(@desc) do |f| %>
+  <% if @desc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@desc.errors.count, "error") %> prohibited this desc from being saved:</h2>
+
+      <ul>
+      <% @desc.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :height %><br />
+    <%= f.text_field :height %>
+  </div>
+  <div class="field">
+    <%= f.label :bodytype %><br />
+    <%= f.text_field :bodytype %>
+  </div>
+  <div class="field">
+    <%= f.label :eye %><br />
+    <%= f.text_field :eye %>
+  </div>
+  <div class="field">
+    <%= f.label :hair %><br />
+    <%= f.text_field :hair %>
+  </div>
+  <div class="field">
+    <%= f.label :ethnicity %><br />
+    <%= f.text_field :ethnicity %>
+  </div>
+  <div class="field">
+    <%= f.label :religion %><br />
+    <%= f.text_field :religion %>
+  </div>
+  <div class="field">
+    <%= f.label :education %><br />
+    <%= f.text_field :education %>
+  </div>
+  <div class="field">
+    <%= f.label :profession %><br />
+    <%= f.text_field :profession %>
+  </div>
+  <div class="field">
+    <%= f.label :marital %><br />
+    <%= f.text_field :marital %>
+  </div>
+  <div class="field">
+    <%= f.label :longestrelation %><br />
+    <%= f.number_field :longestrelation %>
+  </div>
+  <div class="field">
+    <%= f.label :kids %><br />
+    <%= f.text_field :kids %>
+  </div>
+  <div class="field">
+    <%= f.label :wantkids %><br />
+    <%= f.text_field :wantkids %>
+  </div>
+  <div class="field">
+    <%= f.label :pets %><br />
+    <%= f.text_field :pets %>
+  </div>
+  <div class="field">
+    <%= f.label :smoke %><br />
+    <%= f.text_field :smoke %>
+  </div>
+  <div class="field">
+    <%= f.label :drink %><br />
+    <%= f.text_field :drink %>
+  </div>
+  <div class="field">
+    <%= f.label :drug %><br />
+    <%= f.text_field :drug %>
+  </div>
+  <div class="field">
+    <%= f.label :language %><br />
+    <%= f.text_field :language %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

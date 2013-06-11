@@ -39,10 +39,13 @@ div {
   color: green;
 }
 
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+
+
+ 
+.field_with_errors  {
+    background-color: white;
+    padding-left: 5px;
+    font-size: 12 px;
 }
 
 #error_explanation {
@@ -51,7 +54,7 @@ div {
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
-  background-color: #f0f0f0;
+ 
   h2 {
     text-align: left;
     font-weight: bold;
@@ -67,3 +70,15 @@ div {
     list-style: square;
   }
 }
+
+.message {
+font-size: x-large;
+margin: 5px;
+background: #fff url(/assets/invalid.png) no-repeat 98% center;
+ box-shadow: 0 0 5px #d45252;
+ border-color: #b03535
+
+
+}
+
+

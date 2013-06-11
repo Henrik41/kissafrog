@@ -37,6 +37,7 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
+    client_side_validations (3.2.1)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.1)
@@ -56,6 +57,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    geocoder (1.1.8)
     gritter (1.0.3)
     highline (1.6.19)
     hike (1.2.2)
@@ -146,8 +148,10 @@ PLATFORMS
 
 DEPENDENCIES
   capistrano
+  client_side_validations
   coffee-rails (~> 3.2.1)
   devise
+  geocoder
   gritter (= 1.0.3)
   jquery-rails
   mysql2

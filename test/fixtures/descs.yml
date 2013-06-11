@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  height: MyString
+  bodytype: MyString
+  eye: MyString
+  hair: 
+  ethnicity: MyString
+  religion: MyString
+  education: MyString
+  profession: MyString
+  marital: 
+  longestrelation: 1
+  kids: MyString
+  wantkids: MyString
+  pets: MyString
+  smoke: MyString
+  drink: MyString
+  drug: MyString
+  language: MyString
+
+two:
+  height: MyString
+  bodytype: MyString
+  eye: MyString
+  hair: 
+  ethnicity: MyString
+  religion: MyString
+  education: MyString
+  profession: MyString
+  marital: 
+  longestrelation: 1
+  kids: MyString
+  wantkids: MyString
+  pets: MyString
+  smoke: MyString
+  drink: MyString
+  drug: MyString
+  language: MyString

@@ -40,6 +40,10 @@ gem 'jquery-rails'
 
 # Deploy with Capistrano
  gem 'capistrano'
+ 
+# geocoder
+gem 'geocoder'
+gem 'client_side_validations'
 
 # To use debugger
 # gem 'debugger'

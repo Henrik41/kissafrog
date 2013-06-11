@@ -1,0 +1,55 @@
+<h1>Listing descs</h1>
+
+<table>
+  <tr>
+    <th>Height</th>
+    <th>Bodytype</th>
+    <th>Eye</th>
+    <th>Hair</th>
+    <th>Ethnicity</th>
+    <th>Religion</th>
+    <th>Education</th>
+    <th>Profession</th>
+    <th>Marital</th>
+    <th>Longestrelation</th>
+    <th>Kids</th>
+    <th>Wantkids</th>
+    <th>Pets</th>
+    <th>Smoke</th>
+    <th>Drink</th>
+    <th>Drug</th>
+    <th>Language</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @descs.each do |desc| %>
+  <tr>
+    <td><%= desc.height %></td>
+    <td><%= desc.bodytype %></td>
+    <td><%= desc.eye %></td>
+    <td><%= desc.hair %></td>
+    <td><%= desc.ethnicity %></td>
+    <td><%= desc.religion %></td>
+    <td><%= desc.education %></td>
+    <td><%= desc.profession %></td>
+    <td><%= desc.marital %></td>
+    <td><%= desc.longestrelation %></td>
+    <td><%= desc.kids %></td>
+    <td><%= desc.wantkids %></td>
+    <td><%= desc.pets %></td>
+    <td><%= desc.smoke %></td>
+    <td><%= desc.drink %></td>
+    <td><%= desc.drug %></td>
+    <td><%= desc.language %></td>
+    <td><%= link_to 'Show', desc %></td>
+    <td><%= link_to 'Edit', edit_desc_path(desc) %></td>
+    <td><%= link_to 'Destroy', desc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Desc', new_desc_path %>

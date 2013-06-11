@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130605134746) do
+ActiveRecord::Schema.define(:version => 20130611154156) do
 
   create_table "albums", :force => true do |t|
     t.integer  "user_id"
@@ -23,6 +23,39 @@ ActiveRecord::Schema.define(:version => 20130605134746) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+  end
+
+  create_table "descs", :force => true do |t|
+    t.string   "height"
+    t.string   "bodytype"
+    t.string   "eye"
+    t.string   "hair"
+    t.string   "ethnicity"
+    t.string   "religion"
+    t.string   "education"
+    t.string   "profession"
+    t.string   "marital"
+    t.integer  "longestrelation"
+    t.string   "kids"
+    t.string   "wantkids"
+    t.string   "pets"
+    t.string   "smoke"
+    t.string   "drink"
+    t.string   "drug"
+    t.string   "language"
+    t.string   "exercise"
+    t.string   "food"
+    t.string   "travel"
+    t.string   "car"
+    t.string   "books"
+    t.string   "dateasmoker"
+    t.string   "mindpets"
+    t.string   "relationshipsearched"
+    t.string   "educationsearched"
+    t.string   "typeofguy"
+    t.string   "sexsearched"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "saysomethings", :force => true do |t|
@@ -57,6 +90,8 @@ ActiveRecord::Schema.define(:version => 20130605134746) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

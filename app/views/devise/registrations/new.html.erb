@@ -12,13 +12,13 @@
 				
 	</div><!--div header ends here-->
   
-	<%= form_for resource, :as => resource_name, :url => registration_path(resource_name), :html => { :id => "staff_feedbackform", :multipart => true } do |f| %>
+	<%= form_for resource, :as => resource_name, :validate => true, :url => registration_path(resource_name), :html => { :id => "staff_feedbackform", :multipart => true } do |f| %>
 	
 
 	</br>	
 		<fieldset class="sectionwrap">
 		<%= devise_error_messages! %>
-
+       
 <div id="left_pic3">
 		<%= link_to " click here", new_album_path, :id =>"gritterid", remote: true %>
 </div>
@@ -68,11 +68,11 @@
 				  <div class="center_pics">
 		<section class='input'>
   			<%= f.label :name %>
-  					<div><%= f.text_field :name %></div>
+  					<div><%= f.text_field :name, :validate => { :presence => true, :uniqueness => true} %></div>
 			</br>
 
                <%= f.label :wherelive %>
-				 <div><%= f.text_field :wherelive, :placeholder => "Where do you live?" %></div>
+				 <div><%= f.text_field :wherelive, :placeholder => "Where do you live?", :validate => { :presence => true, :uniqueness => true} %></div>
 				
 				</br>
 				
@@ -132,6 +132,7 @@
 
 <div id="footer">
    This will hold the footer
+   this is my IP: <%= request.ip %>
 </div>
 
 </div><!--div container-->

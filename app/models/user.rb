@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+
+  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -12,4 +14,7 @@ class User < ActiveRecord::Base
   has_one :xtra, :dependent => :destroy
   has_one :saysomething, :dependent => :destroy
   accepts_nested_attributes_for :saysomething
+  validates_presence_of :sex, :name,  :wherelive
+  validates_uniqueness_of :name
+
 end
