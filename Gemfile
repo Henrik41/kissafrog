@@ -23,12 +23,13 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
-
+  gem 'twitter-bootstrap-rails'
   gem 'uglifier', '>= 1.0.3'
+  gem 'bootstrap-x-editable-rails'
 end
 
 gem 'jquery-rails'
-
+gem 'mailboxer'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -44,6 +45,8 @@ gem 'jquery-rails'
 # geocoder
 gem 'geocoder'
 gem 'client_side_validations'
+
+
 
 # To use debugger
 # gem 'debugger'

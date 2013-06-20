@@ -1,3 +1,5 @@
+
+
 <%= form_for(@desc) do |f| %>
   <% if @desc.errors.any? %>
     <div id="error_explanation">
@@ -10,6 +12,8 @@
       </ul>
     </div>
   <% end %>
+
+
 
   <div class="field">
     <%= f.label :height %><br />
@@ -83,3 +87,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+

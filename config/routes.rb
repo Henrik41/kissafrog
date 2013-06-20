@@ -1,14 +1,20 @@
 Kissafrog::Application.routes.draw do
-  resources :descs
+  
+  get "showuser/index"
 
+  match "/showuser/show/:id" => "showuser#show"
+
+  root :to => 'info#index'
+  resources :descs
+  get "conversation/create"
+  put "conversation/create"
 
   resources :saysomethings
 
 
   get "profile/index"
-
+  get "conversation/justsend"
   resources :albums
-
 
   get "info/index"
   get "profile/index"
@@ -64,7 +70,7 @@ Kissafrog::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'info#index'
+   
 
   # See how all your routes lay out with "rake routes"
 

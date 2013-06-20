@@ -1,0 +1,27 @@
+#picall{
+	width: 100%;
+	height: 540px;
+}
+
+#mainphoto{
+	width: 25%;
+	height:540px;
+	float: left;
+}
+
+#mainphotoselect{
+	height:540px;
+	float: right;
+}
+
+#otherpics{
+	width: 75%;
+	height:540px;
+	float: right;
+}
+
+#otherpicsselect{
+	width:90%;
+	height:540px;
+	float: right;
+}

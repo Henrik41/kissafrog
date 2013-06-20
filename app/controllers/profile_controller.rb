@@ -6,6 +6,7 @@ before_filter :getcurrentuser
     @mainpic = @mainpic1.first
     @allpics = @user.albums.all
     @xtra = @user.xtra
+
   end
   
 

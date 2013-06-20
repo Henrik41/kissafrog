@@ -52,15 +52,15 @@
 
 				 
 				    <div id="box-1" class="box">  
-				     <td> <img src="smiley.gif" > </td>  
+				     <td> <%= image_tag 'frog.jpg' %> </td>  
 				        <span class="caption simple-caption">  
 				        <p>Simple Caption</p>  
 				        </span>  
 				    </div>  
 				<% end %>
-			
+    
 				</div> <!-- end of #mainwrapper-->
-
+<%= link_to 'Edit your pictures', :controller => 'albums', :action => 'index' %>
 		     </div>
 		</div>
 
@@ -85,10 +85,20 @@
 
 				<p>
 				  <h1>Interests:</h1>
-				  <%= @saysomething.interests %>
+			<div class= 'editable editable-click'>
+				<div id ='saysomething'>
+						
+				  <%= @saysomething.interests  %>
+				</div>
+				</div>
 				</p>
 				
-				<%= link_to 'Edit', edit_saysomething_path(@saysomething) %>
+				<center>
+
+
+				</center>
+				
+				<%= link_to 'Edit', edit_saysomething_path(@saysomething), id: 'editgoal', class: 'editable editable-click' %>
 			</div>
 		</div>
 
@@ -110,3 +120,28 @@
 		</br>
 
 </div>
+
+
+<script type="text/javascript">
+$.fn.editable.defaults.mode = 'popup';
+$('#saysomething').editable({
+    type: 'text',
+	ajaxOptions: {
+	    type: 'put',
+	    dataType: 'html',
+	   
+	},
+	
+    params: function(params) {
+	    //originally params contain pk, name and value
+	   	 alert(params.value);
+	    params.saysomething = {id: <%= @saysomething.id %> , interests: params.value };
+
+	    return params;
+	},
+    pk: {id: 'interests'},
+    url: '/saysomethings/<%= @saysomething.id %>',
+    title: 'Enter username',
+
+});
+</script>

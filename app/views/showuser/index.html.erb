@@ -1,0 +1,8 @@
+<h1>Showuser#index</h1>
+<%  @allusers.each do |u| %>
+<%= u.id %> | <%= link_to 'Send email', :controller => 'conversation', :action => 'create', :id => u.id %>
+</br>
+<% end %>
+	
+	
+

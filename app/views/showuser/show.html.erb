@@ -1,0 +1,12 @@
+<h1>Showuser#show</h1>
+<p>Find me in app/views/showuser/show.html.erb</p>
+This is the profile of <%= @usermail.email %>
+</br>
+
+Send him a message
+
+<%= form_for @usermail, :url => {:controller =>'conversation', :action => 'create', :id => @usermail.id } do |f| %>
+ <%= f.text_area :sendmymail,  :cols =>60, :rows => 10 %>
+<%= f.submit  %>
+<% end %>
+
